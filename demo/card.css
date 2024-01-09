@@ -9,6 +9,7 @@
 }
 
 body {
+  /* background: url(https://img.freepik.com/free-photo/abstract-grunge-decorative-relief-navy-blue-stucco-wall-texture-wide-angle-rough-colored-background_1258-28311.jpg?w=2000&t=st=1687261497~exp=1687262097~hmac=7ad711909113a452c65baacfcb2731e007651d4ca207d3db9ec14fdf131473be); */
   background-color: black;
   font-size: 20px;
   margin: 0em auto;
@@ -37,7 +38,7 @@ body {
 
 #content {
   height: 74%;
-  width: 66%;
+  width: 60%;
   margin: 0 auto;
   /* overflow: scroll; */
 }
@@ -51,29 +52,48 @@ body {
 }
 
 .card {
-  width: 22%;
-  height: 460px;
-  border-radius: 0.6em;
-  background-color: rgb(164, 212, 227);
+  width: 260px;
   display: flex;
   flex-flow: wrap row;
+  border-radius: 0.6em;
+  background-color: rgb(164, 212, 227, 0.8);
+  justify-content: space-around;
+}
+
+.card:hover .attributes-container > :nth-child(even) {
+  transform: translate(300px, -150px);
+  transition-duration: 2s;
+  background-color: aqua;
+}
+
+.page:has(.card:hover) .card {
+  filter: blur(5px);
+}
+
+.card:hover {
+  filter: blur(0) !important;
+  z-index: 1;
+}
+
+.card:hover .attributes-container > :nth-child(odd) {
+  transform: translate(-300px, -120px);
+  transition-duration: 2s;
+  background-color: aqua;
 }
 
 .img {
-  width: 90%;
-  height: 50%;
+  width: 9.8em;
+  height: 10em;
   margin: 0.2em;
-  border-radius: 50%;
 }
 
 .pokemon-name {
-  font-size: 120%;
+  font-size: 1.2em;
   font-weight: 300;
   text-align: center;
-  margin: 0 auto;
 }
 
-.attribute {
+.attributes-container {
   padding: 0.8em;
   width: 260px;
   display: flex;
@@ -86,55 +106,13 @@ body {
   display: flex;
   flex-flow: wrap row;
   justify-content: space-between;
-  padding: 4px 20px;
+  padding: 4px 6px;
   font-weight: 400;
   font-size: 0.8em;
+  border: 1px solid black;
 }
 
 .attribute h3 {
   font-weight: 600;
   font-size: 1.1em;
 }
-
-.card:hover .attributes-container > :nth-child(even) {
-  flex-flow: wrap column;
-  width: 140px;
-  transform: translate(300px, -240px);
-  transition-duration: 2s;
-  background-color: rgb(151, 249, 249);
-}
-
-.card:hover .attributes-container > :nth-child(odd) {
-  flex-flow: wrap column;
-  width: 140px;
-  transform: translate(-180px, -180px);
-  transition-duration: 2s;
-  background-color: rgb(151, 249, 249);
-}
-
-.card:hover {
-  height: 240px;
-  transform: scale(1.4);
-  filter: blur(0) !important;
-  transition-duration: 2s;
-  z-index: 2;
-  align-content: space-between;
-  align-self: center;
-}
-
-.card:hover .pokemon-name {
-  transition-duration: 2s;
-  transform: translate(0px, -150px);
-  background-color: crimson;
-  color: white;
-  font-size: 1.5em;
-}
-
-/* .page:hover .pokemon-name {
-  align-self: flex-end;
-} */
-
-.page:has(.card:hover) .card {
-  filter: brightness(50%) blur(5px);
-}
-
